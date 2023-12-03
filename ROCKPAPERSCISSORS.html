@@ -1,0 +1,26 @@
+<script>
+   function getComputerChoice() {
+    const choices =["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * 3);
+    return choices[randomIndex];
+   }
+function playRound(playerSelection, computerSelection) {
+    const playerChoice = playerSelection.toUpperCase();
+    if (playerChoice === computerSelection.toUpperCase()) {
+        return "It's a tie!";
+    }
+    if (
+    (playerChoice === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") ||
+    (playerChoice === "PAPER" && computerSelection.toUpperCase() === "ROCK") ||
+    (playerChoice === "SCISSORS" && computerSelection.toUpperCase() === "PAPER")
+  ) {
+    return `You Win! ${playerChoice} beats ${computerSelection}`;
+  }
+
+  return `You Lose! ${computerSelection} beats ${playerChoice}`;
+}
+const playerSelection = "Rock";
+const computerSelection = getComputerChoice();
+console.log(`Computer chose: ${computerSelection}`);
+console.log(playRound(playerSelection, computerSelection));
+</script>
